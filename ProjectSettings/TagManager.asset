@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BackgroundElement1
+  - BackgroundElement2
+  - BackgroundElement3
   layers:
   - Default
   - TransparentFX

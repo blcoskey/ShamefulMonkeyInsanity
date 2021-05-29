@@ -4,31 +4,39 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public GameObject movingObject;
-    public GameObject ground;
+    public float timeScale = 1.0f;
+    public GameObject spawnPosition;
+    public GameObject background1;
+    public GameObject background2;
+    public GameObject background3;
+    public GameObject randomTree;
+    public float randomTreeSpawnChance = 0.5f;
     public float spawnTime = 5.0f;
-    public float spawnX = 5.0f;
-    public float groundSpawnX = 18.4f;
-    public float groundSpawnDelay = 10.0f;
     
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating ("SpawnMovingObject", 1.0f, spawnTime);
-        InvokeRepeating ("SpawnGround", 0, groundSpawnDelay);
+        InvokeRepeating ("SpawnTreeProp", 0.0f, spawnTime);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update(){
+        Time.timeScale = timeScale;
     }
 
-    void SpawnMovingObject(){
-        Instantiate(movingObject, new Vector2(spawnX,0), Quaternion.identity);
+    void SpawnTreeProp(){
+        if(Random.value < randomTreeSpawnChance)
+            Instantiate(randomTree, spawnPosition.transform.position, Quaternion.identity);
     }
 
-    void SpawnGround(){
-        Instantiate(ground, new Vector2(groundSpawnX,-0.09f), Quaternion.identity);
+    public void SpawnBackground(string tag){
+        if(tag == "BackgroundElement1" && GameObject.FindGameObjectsWithTag("BackgroundElement1")?.Length < 2){
+            Instantiate(background1, spawnPosition.transform.position, Quaternion.identity);
+        }
+        if(tag == "BackgroundElement2" && GameObject.FindGameObjectsWithTag("BackgroundElement2")?.Length < 2){
+            Instantiate(background2, spawnPosition.transform.position, Quaternion.identity);
+        }
+        if(tag == "BackgroundElement3" && GameObject.FindGameObjectsWithTag("BackgroundElement3")?.Length < 2){
+            Instantiate(background3, spawnPosition.transform.position, Quaternion.identity);
+        }
     }
 }
