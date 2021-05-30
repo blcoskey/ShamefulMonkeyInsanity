@@ -9,6 +9,9 @@ TagManager:
   - BackgroundElement3
   - Bridge
   - BackgroundTree
+  - ForegroundElement
+  - Hazard
+  - Pickup
   layers:
   - Default
   - TransparentFX

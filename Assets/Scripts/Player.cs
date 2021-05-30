@@ -9,6 +9,13 @@ public class Player : MonoBehaviour
     public float jumpForce = 10.0f;
     public float distToGroundOffset = 0.0f;
     public LayerMask groundLayer;
+    public LevelManager levelManager;
+    [Header("Buffs")]
+    public bool invulnerable = false;
+    public float invulnerableTime = 5.0f;
+    public float invulnerableRechargeTime = 5.0f;
+    public float invulnerableCooldown = 0.0f;
+    public float timer = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,5 +51,35 @@ public class Player : MonoBehaviour
         Debug.DrawRay(col2D.bounds.center, Vector2.down * (col2D.bounds.extents.y + distToGroundOffset), rayColour);
 
         return hit;
+    }
+
+    void Death()
+    {
+        Destroy(gameObject);
+        levelManager.gameOver = true;
+    }
+
+    /// <summary>
+    /// Sent when another object enters a trigger collider attached to this
+    /// object (2D physics only).
+    /// </summary>
+    /// <param name="other">The other Collider2D involved in this collision.</param>
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Hazard")
+        {
+            Death();
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.tag == "Pickup")
+        {
+            var pickupType = enums.PickupType.Bananna;
+            if (other.gameObject.name.Contains("Monkey"))
+            {
+                pickupType = enums.PickupType.Monkey;
+            }
+            levelManager.Pickup(pickupType);
+            Destroy(other.gameObject);
+        }
     }
 }
