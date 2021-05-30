@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1237387945}
   m_Layer: 0
   m_Name: RandomTree
-  m_TagString: Untagged
+  m_TagString: BackgroundTree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,9 +71,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingLayerID: 1270057485
+  m_SortingLayer: 1
+  m_SortingOrder: 8
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5a17117ed06b06941b30c5235d4ff415, type: 3}
   - {fileID: 21300000, guid: daa19cd1d99914f47bdd3526d042de62, type: 3}
   - {fileID: 21300000, guid: 1cc34f383df50294b989c1c5c65b41b6, type: 3}
+  scaleRandomnessMax: 2
 --- !u!114 &4883056714909702061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  levelManager: {fileID: 0}
 --- !u!61 &1237387945
 BoxCollider2D:
   m_ObjectHideFlags: 0
