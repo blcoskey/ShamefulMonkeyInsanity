@@ -43,6 +43,7 @@ public class LevelManager : MonoBehaviour
     public float dartSpawnOffset = -2.0f;
     public float bananaSpawnChance = 1.0f;
     public float bananaSpawnTime = 1.0f;
+    public float bananaSpawnOffset = -2.0f;
     public float monkeySpawnChance = 1.0f;
     public float monkeySpawnTime = 1.0f;
     public float monkeySpawnOffset = 5.0f;
@@ -203,7 +204,7 @@ public class LevelManager : MonoBehaviour
     void SpawnBanana()
     {
         if (Random.value <= bananaSpawnChance)
-            Instantiate(bananaPickup, new Vector2(spawnPosition.transform.position.x, dartSpawnOffset), Quaternion.identity);
+            Instantiate(bananaPickup, new Vector2(spawnPosition.transform.position.x, bananaSpawnOffset), Quaternion.identity);
     }
     void SpawnMonkey()
     {
