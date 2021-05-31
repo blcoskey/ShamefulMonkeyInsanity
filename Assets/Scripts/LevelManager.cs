@@ -111,14 +111,21 @@ public class LevelManager : MonoBehaviour
     {
         Application.Quit();
     }
+
     public void Retry()
     {
-        SceneManager.LoadScene("Jungle");
+        SceneManager.LoadScene("Jungle2");
         gameOver = false;
         monkeys = 0;
         banannas = 0;
         Time.timeScale = 1;
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     // Start is called before the first frame update
     void Start()
     {

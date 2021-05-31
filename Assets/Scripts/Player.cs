@@ -6,7 +6,11 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D rbody;
     private BoxCollider2D col2D;
+    [Header("Jump")]
+    public bool enableDoubleJump = true;
+    public bool canDoubleJump = true;
     public float jumpForce = 10.0f;
+    public float doubleJumpForce = 10.0f;
     public float distToGroundOffset = 0.0f;
     public LayerMask groundLayer;
     public LevelManager levelManager;
@@ -26,10 +30,21 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        IsGrounded();
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (IsGrounded() && !canDoubleJump)
         {
-            rbody.velocity = Vector2.up * jumpForce;
+            canDoubleJump = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && (IsGrounded() || (canDoubleJump && enableDoubleJump)))
+        {
+            if (!IsGrounded() && canDoubleJump)
+            {
+                rbody.velocity = Vector2.up * doubleJumpForce;
+                canDoubleJump = false;
+            }
+            else
+            {
+                rbody.velocity = Vector2.up * jumpForce;
+            }
         }
     }
 
@@ -76,7 +91,13 @@ public class Player : MonoBehaviour
             var pickupType = enums.PickupType.Bananna;
             if (other.gameObject.name.Contains("Monkey"))
             {
+                FindObjectOfType<AudioManager>().Play("Monkey");
                 pickupType = enums.PickupType.Monkey;
+            }
+            if (other.gameObject.name.Contains("Banana"))
+            {
+                FindObjectOfType<AudioManager>().Play("Banana");
+                pickupType = enums.PickupType.Bananna;
             }
             levelManager.Pickup(pickupType);
             Destroy(other.gameObject);
