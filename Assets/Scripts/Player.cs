@@ -91,12 +91,10 @@ public class Player : MonoBehaviour
             var pickupType = enums.PickupType.Bananna;
             if (other.gameObject.name.Contains("Monkey"))
             {
-                FindObjectOfType<AudioManager>().Play("Monkey");
                 pickupType = enums.PickupType.Monkey;
             }
             if (other.gameObject.name.Contains("Banana"))
             {
-                FindObjectOfType<AudioManager>().Play("Banana");
                 pickupType = enums.PickupType.Bananna;
             }
             levelManager.Pickup(pickupType);

@@ -155,7 +155,7 @@ MonoBehaviour:
   sounds:
   - name: Banana
     audioClip: {fileID: 8300000, guid: 4ab74012ede74bd41a4dfd9f036846ed, type: 3}
-    volume: 0.399
+    volume: 0.254
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
@@ -1418,7 +1418,10 @@ MonoBehaviour:
 
 
     Art:
-    Christan Besseling'
+    Christan Besseling
+
+
+    Music: Christan Besseling'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1427,8 +1430,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279577102
+  m_fontColor: {r: 0.054901965, g: 0.16470589, b: 0.08235294, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1445,7 +1448,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.85
+  m_fontSize: 41.95
   m_fontSizeBase: 63.7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1821,7 +1824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1721902156
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1934,7 +1937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2021897455
 RectTransform:
   m_ObjectHideFlags: 0
