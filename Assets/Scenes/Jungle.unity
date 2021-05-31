@@ -2737,6 +2737,7 @@ MonoBehaviour:
   monkeyScore: {fileID: 543872181}
   bananaScore: {fileID: 191343538}
   bananaIcon: {fileID: 1457802084}
+  monkeyIcon: {fileID: 1350268981}
   gameOver: 0
   gameOverUI: {fileID: 2140219100}
   Timer: 0
